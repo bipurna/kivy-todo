@@ -1,6 +1,7 @@
 # kivy-todo
 ## You can add task
-![no fill](https://user-images.githubusercontent.com/8917954/126787150-ce11c029-d438-4d61-be0f-3360ac3ec537.png)
+![no fill](https://user-images.githubusercontent.com/8917954/126787515-88c85bfd-f5e1-476a-a670-adba89d8c1ba.png)
+
 ![task-added](https://user-images.githubusercontent.com/8917954/126787172-4f3b7b0b-7c2d-4398-97b1-735cecf01249.png)
 
 
