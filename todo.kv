@@ -1,0 +1,132 @@
+<DropDownStatus>:
+    Button:
+        id:notcomplete
+        text:"Not Completed"
+        size_hint_y: None
+        height: 44
+        on_release: root.select("Not Completed")
+
+    Button:
+        id:completed
+        text: 'Completed'
+        size_hint_y: None
+        height: 44
+
+        on_release: root.select('Completed')
+    
+<TodoUI>:
+    layout:tasks
+    orientation: 'vertical'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        size_hint: 1,None
+        size_hint_y: .3
+        Label:
+            markup:True
+            text:"[b]Todo List[/b]"
+            font_size: 30
+            color:(176/255,210/255,12/255)
+
+        GridLayout:
+            id:inputs
+            cols:2
+            spacing: 20
+            TextInput:
+                size_hint: None,1
+                size_hint_x: .7
+                pos_hint: {'center_x':.5}
+                font_size: 25
+                foreground_color:(253/255,173/255,0)
+                id:input_task
+                
+            Button:
+                size_hint: None,1
+                size_hint_x: .1
+                font_size: 45
+                color:(253/255,173/255,0)
+                text: "+"
+                disabled: True if input_task.text == '' else False
+                on_press: root.add_task()
+                on_release: root.clear_inputs()
+    GridLayout:
+        rows:2
+        
+        GridLayout:
+            size_hint: 1,None
+            size_hint_y: .1
+            markup:True
+            cols:6
+            Label:
+                size_hint_x:None
+                size_hint_x: .2
+                markup:True
+                font_size: 15
+                color:(253/255,173/255,0)
+                text:"[b]ID[/b]"
+            Label:
+                size_hint_x:None
+                size_hint_x: .2
+                markup:True
+                font_size: 15
+                color:(253/255,173/255,0)
+                text:"[b]Action[/b]"
+            Label:
+                size_hint_x:None
+                size_hint_x: .2
+                markup:True
+                font_size: 15
+                color:(253/255,173/255,0)
+                text:"[b]Tasks[/b]"
+            Label:
+                size_hint_x:None
+                size_hint_x: .2
+                markup:True
+                font_size: 15
+                color:(253/255,173/255,0)
+                text:"[b]Status[/b]"
+            Label:
+                size_hint_x:None
+                size_hint_x: .2
+                markup:True
+                font_size: 15
+                color:(253/255,173/255,0)
+                text:"[b]Inserted time[/b]"
+            Label:
+                size_hint_x:None
+                size_hint_x: .2
+                markup:True
+                font_size: 15
+                color:(253/255,173/255,0)
+                text:"[b]completed time[/b]"
+        ScrollView:
+            size_hint:1, None
+            size_hint_y: .9
+            layout:tasks                    
+            do_scroll_x:False
+            do_scroll_y:True        
+            GridLayout:
+                spacing:10
+                cols:6
+                id:tasks
+                size_hint_y: None
+                height: self.height
+    GridLayout:
+        cols:5
+        size_hint: 1, None
+        size_hint_y: 0.1
+        Label:
+        Label:
+        Label:
+        Button:
+            id: done
+            text:"Done"
+            disabled:True
+            on_release:root.completed()
+        Button:
+            id:delete
+            text:"Delete"
+            color:(1,0,0)
+            disabled:True
+            on_release:root.delete_item()
+
